@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Kubus</title>
+  <style>
+    /*Hasil volume kubus ditampilkan dalam satuan sentimeter kubik (cm<sup>3</sup>), luas permukaan kubus ditampilkan dalam satuan sentimeter persegi (cm<sup>2</sup>), dan keliling kubus ditampilkan dalam satuan sentimeter (cm).*/
+    /*program ini berfungsi untuk menghitung volume kubus, luas permukaan dan keliling kubus dengan hanya menginputkan panjang sisi saja,di buat agar berguna untuk anak-anak bangsa*/
+    /* Stylesheet untuk tampilan halaman */
+  </style>
+</head>
+<body>
+  <h1>AYO BELAJAR MENGHITUNG KUBUS</h1>
+  <div class="container">
+    <label for="sideLength">Panjang Sisi (cm):</label>
+    <input type="number" id="sideLength">
+
+    <button onclick="calculate()">Hitung</button>
+
+    <div id="result"></div>
+  </div>
+<script src="jquery-3.7.0.min.js"></script>
+  <script>
+    function calculate() {
+      // Mengambil elemen HTML yang dibutuhkan
+      var sideLengthInput = document.getElementById('sideLength');
+      var resultDiv = document.getElementById('result');
+
+      // Mendapatkan nilai panjang sisi dari input
+      var sideLength = parseFloat(sideLengthInput.value);
+
+      // Memeriksa apakah input valid
+      if (isNaN(sideLength)) {
+        resultDiv.innerHTML = 'Panjang sisi harus diisi dengan angka.';
+        return;
+      }
+
+      // Menghitung volume kubus
+      var volume = Math.pow(sideLength, 3);
+
+      // Menghitung luas permukaan kubus
+      var surfaceArea = 6 * Math.pow(sideLength, 2);
+
+      // Menghitung keliling kubus
+      var perimeter = 12 * sideLength;
+
+      // Menampilkan hasil perhitungan di halaman
+      resultDiv.innerHTML = 'Volume Kubus: ' + volume.toFixed(2) + ' cm<sup>3</sup><br>' +
+                            'Luas Permukaan Kubus: ' + surfaceArea.toFixed(2) + ' cm<sup>2</sup><br>' +
+                            'Keliling Kubus: ' + perimeter.toFixed(2) + ' cm';
+    }
+  </script>
+</body>
+</html>
